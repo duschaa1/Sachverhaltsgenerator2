@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2299.77">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="Apple-converted-space"> </span>(cd "$(git rev-parse --show-toplevel)" &amp;&amp; git apply --3way &lt;&lt;'EOF'<span class="Apple-converted-space"> </span></p>
+<p class="p1">diff --git a/index.html b/index.html</p>
+<p class="p1">index b3dbeb4f5d643e4b0355b91f444768f8ae906dbf..0fdb151813aca277a9ab67804b809550d6fb6ee5 100644</p>
+<p class="p1">--- a/index.html</p>
+<p class="p1">+++ b/index.html</p>
+<p class="p1">@@ -1,20 +1,194 @@</p>
+<p class="p1">-&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</p>
+<p class="p1">-&lt;html&gt;</p>
+<p class="p1">+&lt;!doctype html&gt;</p>
+<p class="p1">+&lt;html lang="de"&gt;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>&lt;head&gt;</p>
+<p class="p1">-<span class="Apple-converted-space">  </span>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;</p>
+<p class="p1">-<span class="Apple-converted-space">  </span>&lt;meta http-equiv="Content-Style-Type" content="text/css"&gt;</p>
+<p class="p1">-<span class="Apple-converted-space">  </span>&lt;title&gt;&lt;/title&gt;</p>
+<p class="p1">-<span class="Apple-converted-space">  </span>&lt;meta name="Generator" content="Cocoa HTML Writer"&gt;</p>
+<p class="p1">-<span class="Apple-converted-space">  </span>&lt;meta name="CocoaVersion" content="2299.77"&gt;</p>
+<p class="p1">-<span class="Apple-converted-space">  </span>&lt;style type="text/css"&gt;</p>
+<p class="p1">-<span class="Apple-converted-space">    </span>p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}</p>
+<p class="p1">-<span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">  </span>&lt;title&gt;Sachverhaltsgenerator&lt;/title&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">  </span>&lt;link rel="stylesheet" href="style.css" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>&lt;/head&gt;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>&lt;body&gt;</p>
+<p class="p1">-&lt;p class="p1"&gt;sachverhalts-generator/&lt;/p&gt;</p>
+<p class="p1">-&lt;p class="p1"&gt;│&lt;/p&gt;</p>
+<p class="p1">-&lt;p class="p1"&gt;├── index.html&lt;span class="Apple-converted-space"&gt;      &lt;/span&gt;→ Hauptseite&lt;/p&gt;</p>
+<p class="p1">-&lt;p class="p1"&gt;├── style.css &lt;span class="Apple-converted-space"&gt;      &lt;/span&gt;→ Styling&lt;/p&gt;</p>
+<p class="p1">-&lt;p class="p1"&gt;└── script.js &lt;span class="Apple-converted-space"&gt;      &lt;/span&gt;→ JavaScript-Logik&lt;/p&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">  </span>&lt;main class="app"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;header&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;h1&gt;Sachverhaltsgenerator&lt;/h1&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;p&gt;Fallart per Drag &amp; Drop wählen, Parameter erfassen und Mustersachverhalt erzeugen.&lt;/p&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p1">+</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;section class="card"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;h2&gt;1) Fallart (Drag &amp; Drop)&lt;/h2&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;div class="drag-layout"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;p class="hint"&gt;Verfügbare Fallarten:&lt;/p&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;div class="drag-source" id="caseTypeSource"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;button class="drag-item" draggable="true" data-type="verkehrsunfall" type="button"&gt;Verkehrsunfall&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;button class="drag-item" draggable="true" data-type="verkehrsstraftat" type="button"&gt;Verkehrsstraftat&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;button class="drag-item" draggable="true" data-type="straftat" type="button"&gt;Straftat&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;p class="hint"&gt;Ausgewählte Fallart:&lt;/p&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;div class="drop-zone" id="caseTypeDrop"&gt;Hier Fallart hineinziehen&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;input type="hidden" id="caseType" value="verkehrsunfall" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p1">+</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;section class="card"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;h2&gt;2) Delikt&lt;/h2&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;div class="grid"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;Deliktsauswahl (häufige Delikte)</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;select id="delikt"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Körperverletzung&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Beleidigung&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;gefährliche Körperverletzung&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Bedrohung&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Nötigung&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Nötigung im Straßenverkehr&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Trunkenheit im Straßenverkehr&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Unerlaubtes Entfernen vom Unfallort&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Sachbeschädigung&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;/select&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;div class="drag-layout mt"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;p class="hint"&gt;Textbausteine (Drag &amp; Drop):&lt;/p&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;div class="drag-source" id="bausteinSource"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;button class="drag-item small" draggable="true" type="button"&gt;vorsätzlich&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;button class="drag-item small" draggable="true" type="button"&gt;unter Alkoholeinfluss&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;button class="drag-item small" draggable="true" type="button"&gt;Zeuge glaubhaft&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;button class="drag-item small" draggable="true" type="button"&gt;Videoauswertung erfolgt&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;button class="drag-item small" draggable="true" type="button"&gt;Täter flüchtig&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;p class="hint"&gt;Zusatzbausteine für den Sachverhalt:&lt;/p&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;div class="drop-zone" id="bausteinDrop"&gt;Bausteine hier hineinziehen&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p1">+</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;section class="card"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;h2&gt;3) Parameter&lt;/h2&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;div class="grid" id="timeLocationFields"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label id="dateLabel"&gt;Unfalldatum</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;input type="date" id="datum" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label id="timeLabel"&gt;Unfallzeit</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;input type="time" id="uhrzeit" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label id="ortLabel"&gt;Unfallort</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;input type="text" id="ort" placeholder="z. B. Musterstraße, Musterstadt" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1">+</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;div class="grid" id="vuOnlyFields"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;Unfallart</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;select id="unfallart"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option value="Vorfahrtsverstoß"&gt;Vorfahrtsverstoß&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option value="Abstand"&gt;Abstand&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option value="Überholen"&gt;Überholen&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option value="Frontalzusammenstoß"&gt;Frontalzusammenstoß&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;/select&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;Vorfahrt geregelt durch</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;select id="vorfahrtRegel"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option value=""&gt;-- nur bei Vorfahrtsverstoß --&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Zeichen 205 (Vorfahrt gewähren)&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Zeichen 206 (Halt! Vorfahrt gewähren)&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Zeichen 301 (Vorfahrt)&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Zeichen 306 (Vorfahrtstraße)&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Zeichen 307 (Ende der Vorfahrtstraße)&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Zeichen 1002-10 / 1002-11 (Verlauf der Vorfahrtstraße)&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Rechts vor Links (§ 8 StVO)&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Ausfahrt aus verkehrsberuhigtem Bereich (Zeichen 325.1/325.2)&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Ausfahrt aus Grundstück / Fußgängerzone / abgesenkter Bordstein (§ 10 StVO)&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;/select&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1">+</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;div class="grid" id="straftatVehicleFields"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;&lt;input type="checkbox" id="kfzBezug" /&gt; Kfz-Bezug vorhanden (z. B. Sachbeschädigung an Kfz)&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;Kfz-Kennzeichen</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;input type="text" id="kfzKennzeichen" placeholder="z. B. M-AB123" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;Fahrzeugbeschreibung</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;input type="text" id="kfzBeschreibung" placeholder="z. B. Pkw, BMW 3er, schwarz" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p1">+</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;section class="card"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;h2&gt;Beteiligte&lt;/h2&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;p class="hint"&gt;01 und 02 sind Standard. Optional 03 und 04.&lt;/p&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;div class="actions"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;button id="btnAdd3" type="button" class="secondary"&gt;03 hinzufügen&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;button id="btnAdd4" type="button" class="secondary"&gt;04 hinzufügen&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;div id="participants"&gt;&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p1">+</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;section class="card"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;h2&gt;Maßnahmen&lt;/h2&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;div class="checks"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;&lt;input type="checkbox" id="mLichtbilder" checked /&gt; Es wurden Lichtbilder gefertigt und eine Lichtbildtafel erstellt.&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;&lt;input type="checkbox" id="mSkizze" checked /&gt; Eine Handskizze der Situation wurde gefertigt.&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;&lt;input type="checkbox" id="mAnhoerung01" checked /&gt; Beteiligter 01 wurde belehrt und zur Sache vernommen.&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;&lt;input type="checkbox" id="mZeuge02" checked /&gt; Beteiligter 02 wurde als Zeuge belehrt und vernommen.&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;label class="mt"&gt;Äußerungsbogen ohne Rücklauf (Mehrfachauswahl)</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;select id="nichtGeaeussert" multiple size="4"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;option value="01"&gt;01&lt;/option&gt;&lt;option value="02"&gt;02&lt;/option&gt;&lt;option value="03"&gt;03&lt;/option&gt;&lt;option value="04"&gt;04&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p1">+</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;section class="actions"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;button id="btnGenerate" type="button"&gt;Sachverhalt generieren&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;button id="btnCopy" type="button" class="secondary"&gt;Kopieren&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;button id="btnWord" type="button" class="secondary"&gt;Word (.doc)&lt;/button&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p1">+</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;section class="card"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;h2&gt;Generierter Text&lt;/h2&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;textarea id="output" rows="18" readonly&gt;&lt;/textarea&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
+<p class="p1">+</p>
+<p class="p1">+<span class="Apple-converted-space">  </span>&lt;template id="participant-template"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;article class="participant card-inner" data-participant="__ID__"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;h3 class="participant-title" id="participantTitle__ID__"&gt;Beteiligter __ID__&lt;/h3&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;div class="grid"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;Anrede</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;select id="anrede__ID__"&gt;&lt;option&gt;Herr&lt;/option&gt;&lt;option&gt;Frau&lt;/option&gt;&lt;/select&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;Name</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;input type="text" id="name__ID__" placeholder="Name" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label class="vehicle-field"&gt;Fahrzeugart</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;input type="text" id="fahrzeugart__ID__" value="Pkw" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label class="vehicle-field"&gt;Kennzeichen</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;input type="text" id="kennzeichen__ID__" placeholder="XX-XX111" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label class="direction-field"&gt;Fahrtrichtung</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;select id="richtung__ID__"&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Norden&lt;/option&gt;&lt;option&gt;Nordosten&lt;/option&gt;&lt;option&gt;Osten&lt;/option&gt;&lt;option&gt;Südosten&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">            </span>&lt;option&gt;Süden&lt;/option&gt;&lt;option&gt;Südwesten&lt;/option&gt;&lt;option&gt;Westen&lt;/option&gt;&lt;option&gt;Nordwesten&lt;/option&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;/select&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;Verletzung</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;select id="verletzung__ID__"&gt;&lt;option&gt;unverletzt&lt;/option&gt;&lt;option&gt;leicht verletzt&lt;/option&gt;&lt;option&gt;schwer verletzt&lt;/option&gt;&lt;option&gt;getötet&lt;/option&gt;&lt;/select&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;Schadensart</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;input type="text" id="schadensart__ID__" placeholder="z. B. Frontschaden" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;label&gt;Schadenshöhe</p>
+<p class="p1">+<span class="Apple-converted-space">          </span>&lt;input type="text" id="schadenshoehe__ID__" placeholder="z. B. 1500 EUR" /&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">    </span>&lt;/article&gt;</p>
+<p class="p1">+<span class="Apple-converted-space">  </span>&lt;/template&gt;</p>
+<p class="p1">+</p>
+<p class="p1">+<span class="Apple-converted-space">  </span>&lt;script src="script.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>&lt;/body&gt;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>&lt;/html&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">EOF</p>
+<p class="p1">)</p>
+</body>
+</html>
